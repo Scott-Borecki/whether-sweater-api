@@ -2,7 +2,7 @@ class ErrorSerializer
   attr_reader :status, :messages
 
   def initialize(arguments)
-    @status   = arguments[:status]
+    @status   = arguments[:status].to_i
     @messages = arguments[:messages]
   end
 
