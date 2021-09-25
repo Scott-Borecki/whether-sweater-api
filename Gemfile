@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'date'
 gem 'faraday'
 gem 'json'
+gem 'jsonapi.rb'
 gem 'jsonapi-serializer'
 
 group :development, :test do
