@@ -34,6 +34,8 @@ Layout/HashAlignment:
   EnforcedColonStyle:
     - key
     - table
+  Exclude:
+    - 'spec/support/**/*'
 
 Layout/LineLength:
   Max: 80
@@ -45,6 +47,14 @@ Layout/LineLength:
     - 'config/**/*.rb'
     - 'Gemfile'
     - 'Rakefile'
+
+Layout/SpaceAroundOperators:
+  Exclude:
+    - 'spec/support/**/*'
+
+Layout/SpaceInsideHashLiteralBraces:
+  Exclude:
+    - 'spec/support/**/*'
 
 Lint/AmbiguousBlockAssociation:
   Exclude:
@@ -142,11 +152,23 @@ Style/EmptyMethod:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Style/HashSyntax:
+  Exclude:
+    - 'spec/support/**/*'
+
 Style/MultilineIfThen:
   Enabled: false
 
+Style/NumericLiterals:
+  Exclude:
+    - 'spec/support/**/*'
+
 Style/SafeNavigation:
   Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - 'spec/support/**/*'
 
 Style/SymbolArray:
   Exclude:
