@@ -1,12 +1,12 @@
 class LocationFacade
   def self.get_coordinates(location)
-    json = LocationService.get_coordinates(location)
+    data_hash = LocationService.get_coordinates(location)
 
-    if json[:info][:messages].present?
-      ErrorSerializer.new(messages: json[:info][:messages],
-                          status: json[:info][:statuscode])
+    if data_hash[:info][:messages].present?
+      ErrorSerializer.new(messages: data_hash[:info][:messages],
+                          status: data_hash[:info][:statuscode])
     else
-      Location.new(json)
+      Location.new(data_hash)
     end
   end
 end
