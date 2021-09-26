@@ -18,6 +18,14 @@ shared_examples 'status code 400' do
   end
 end
 
+shared_examples 'status code 403' do
+  it 'returns status code 403: forbidden' do
+    expect(response).to have_http_status(:forbidden)
+    expect(json[:errors].first[:status]).to eq('403')
+    expect(json[:errors].first[:title]).to eq('Forbidden')
+  end
+end
+
 shared_examples 'status code 422' do
   it 'returns status code 422: unprocessable entity' do
     expect(response).to have_http_status(:unprocessable_entity)
