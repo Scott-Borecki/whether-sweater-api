@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def api_key
+    api_keys.get_user_token
+  end
+
   private
 
   def generate_api_key

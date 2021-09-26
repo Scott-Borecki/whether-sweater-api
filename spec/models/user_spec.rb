@@ -36,4 +36,16 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'instance methods' do
+    describe '#api_key' do
+      subject(:user) { create(:user) }
+
+      let(:api_key_token) { user.api_keys.first.token }
+
+      it 'returns the users api key (token)' do
+        expect(user.api_key).to eq(api_key_token)
+      end
+    end
+  end
 end
