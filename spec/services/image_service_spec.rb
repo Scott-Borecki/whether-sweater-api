@@ -36,21 +36,6 @@ describe ImageService, type: :service do
           expect(image_data[:user][:links][:html]).to be_a(String)
         end
       end
-      #
-      # TODO: Add sad path testing.  Right now it returns a random photo.
-      #       Perhaps the query validation is performed in the controller.
-      # context 'when I do not provide a location', :vcr do
-      #   subject(:response) { ImageService.get_background_image(empty_params) }
-      #
-      #   let(:empty_params) { { location: '' } }
-      #
-      #   it 'returns the error details as a hash', :aggregate_failures do
-      #     expect(response).to be_a(Hash)
-      #     require "pry"; binding.pry
-      #     expect(response[:cod]).to eq('400')
-      #     expect(response[:message]).to eq('Nothing to geocode')
-      #   end
-      # end
     end
   end
 end

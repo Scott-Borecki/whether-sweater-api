@@ -10,11 +10,23 @@ class ErrorSerializer
     {
       errors:
         messages.map do |message|
-          {
-            status: status.to_s,
-            detail: message
-          }
+          if title.present?
+            {
+              status: status.to_s,
+              title: title,
+              detail: message
+            }
+          else
+            {
+              status: status.to_s,
+              detail: message
+            }
+          end
         end
     }
+  end
+
+  def title
+    Rack::Utils::HTTP_STATUS_CODES[status]
   end
 end
