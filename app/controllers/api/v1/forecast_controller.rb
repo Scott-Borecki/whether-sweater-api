@@ -1,8 +1,8 @@
 class Api::V1::ForecastController < ApplicationController
+  before_action :validate_location, only: [:index]
+
   def index
     location = LocationFacade.get_coordinates(params[:location])
-    return render_json_error(location) if location.is_a? ErrorSerializer
-
     forecast = ForecastFacade.get_forecast(lat: location.latitude,
                                            lon: location.longitude)
 
@@ -11,7 +11,10 @@ class Api::V1::ForecastController < ApplicationController
 
   private
 
-  def render_json_error(object)
-    render json: object.to_hash, status: object.status
+  def validate_location
+    validator = LocationValidator.new(location: params[:location])
+    return if validator.valid?
+
+    render json_error_response(validator.errors, :bad_request)
   end
 end
