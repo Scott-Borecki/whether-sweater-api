@@ -10,12 +10,22 @@ module Response
     {
       json: {
         errors:
-          object.map do |key, value|
-            {
-              status: error_status(status).to_s,
-              title: error_title(status),
-              detail: "#{key.to_s.titleize} #{value}"
-            }
+          if object.is_a? Array
+            object.map do |detail|
+              {
+                status: error_status(status).to_s,
+                title: error_title(status),
+                detail: detail
+              }
+            end
+          else
+            object.map do |key, value|
+              {
+                status: error_status(status).to_s,
+                title: error_title(status),
+                detail: "#{key.to_s.titleize} #{value}"
+              }
+            end
           end
       },
       status: status

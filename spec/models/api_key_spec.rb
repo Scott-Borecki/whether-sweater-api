@@ -22,18 +22,18 @@ RSpec.describe ApiKey, type: :model do
   end
 
   describe 'class methods' do
-    describe '#get_user_token' do
+    describe '#user_token' do
       it 'returns the first token' do
         first_api_key = create(:user).api_keys.first
         second_api_key = create(:user).api_keys.first
         third_api_key = create(:user).api_keys.first
 
-        expect(ApiKey.get_user_token).to eq(first_api_key.token)
-        expect(ApiKey.get_user_token).not_to eq(second_api_key.token)
-        expect(ApiKey.get_user_token).not_to eq(third_api_key.token)
+        expect(ApiKey.user_token).to eq(first_api_key.token)
+        expect(ApiKey.user_token).not_to eq(second_api_key.token)
+        expect(ApiKey.user_token).not_to eq(third_api_key.token)
 
-        expect(ApiKey.get_user_token).to be_a(String)
-        expect(ApiKey.get_user_token.length).to eq(32)
+        expect(ApiKey.user_token).to be_a(String)
+        expect(ApiKey.user_token.length).to eq(32)
       end
     end
   end
