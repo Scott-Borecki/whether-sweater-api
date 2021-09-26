@@ -12,6 +12,21 @@ RSpec.describe User, type: :model do
     it { should validate_length_of(:password).is_at_most(72) }
   end
 
+  describe 'call backs' do
+    describe 'after_commit' do
+      describe 'on: :create' do
+        describe '#generate_api_key' do
+          subject(:user) { create(:user) }
+
+          it 'generates an api key for the new user' do
+            expect(user.api_keys.size).to eq(1)
+            expect(user.api_keys.first.token).to be_a(String)
+          end
+        end
+      end
+    end
+  end
+
   describe 'factories' do
     describe 'create(:user)' do
       subject(:user) { create(:user) }
