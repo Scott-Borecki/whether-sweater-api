@@ -12,7 +12,7 @@ module Response
         errors:
           object.map do |key, value|
             {
-              status: error_status(status),
+              status: error_status(status).to_s,
               title: error_title(status),
               detail: "#{key.to_s.titleize} #{value}"
             }
