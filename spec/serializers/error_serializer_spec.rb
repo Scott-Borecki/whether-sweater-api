@@ -100,9 +100,9 @@ describe ErrorSerializer, type: :serializer do
           error_response_400 = {
             status: 400,
             messages: ['some error message',
-              'another error message',
-              'and another error message']
-            }
+                       'another error message',
+                       'and another error message']
+          }
           error_serializer = ErrorSerializer.new(error_response_400)
 
           expect(error_serializer.title).to eq('Bad Request')
@@ -110,9 +110,9 @@ describe ErrorSerializer, type: :serializer do
           error_response_404 = {
             status: 404,
             messages: ['some error message',
-              'another error message',
-              'and another error message']
-            }
+                       'another error message',
+                       'and another error message']
+          }
           error_serializer = ErrorSerializer.new(error_response_404)
 
           expect(error_serializer.title).to eq('Not Found')
@@ -120,9 +120,9 @@ describe ErrorSerializer, type: :serializer do
           error_response_422 = {
             status: 422,
             messages: ['some error message',
-              'another error message',
-              'and another error message']
-            }
+                       'another error message',
+                       'and another error message']
+          }
           error_serializer = ErrorSerializer.new(error_response_422)
 
           expect(error_serializer.title).to eq('Unprocessable Entity')
@@ -134,9 +134,9 @@ describe ErrorSerializer, type: :serializer do
           error_response_499 = {
             status: 499,
             messages: ['some error message',
-              'another error message',
-              'and another error message']
-            }
+                       'another error message',
+                       'and another error message']
+          }
           error_serializer = ErrorSerializer.new(error_response_499)
 
           expect(error_serializer.title).to be_nil
