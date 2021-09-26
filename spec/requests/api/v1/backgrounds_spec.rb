@@ -27,11 +27,13 @@ describe 'Api::V1::Backgrounds', type: :request do
 
         expect(json).to be_a(Hash)
         expect(json).to have_key(:errors)
-        expect(json[:errors]).to be_a(Hash)
-        expect(json[:errors].size).to eq(3)
-        expect(json[:errors][:status]).to eq(400)
-        expect(json[:errors][:title]).to eq('Bad Request')
-        expect(json[:errors][:detail]).to eq({ location: ["can't be blank"] })
+        expect(json[:errors]).to be_a(Array)
+        expect(json[:errors].size).to eq(1)
+        expect(json[:errors].first).to be_a(Hash)
+        expect(json[:errors].first.size).to eq(3)
+        expect(json[:errors].first[:status]).to eq(400)
+        expect(json[:errors].first[:title]).to eq('Bad Request')
+        expect(json[:errors].first[:detail]).to eq("Location can't be blank")
       end
 
       it 'returns status code 400' do

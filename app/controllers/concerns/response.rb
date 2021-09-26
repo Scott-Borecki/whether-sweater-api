@@ -9,11 +9,14 @@ module Response
   def json_error_response(object, status = :bad_request)
     {
       json: {
-        errors: {
-          status: error_status,
-          title: error_title,
-          detail: object
-        }
+        errors:
+          object.map do |key, value|
+            {
+              status: error_status(status),
+              title: error_title(status),
+              detail: "#{key.to_s.titleize} #{value}"
+            }
+          end
       },
       status: status
     }
@@ -21,11 +24,11 @@ module Response
 
   private
 
-  def error_title
-    Rack::Utils::HTTP_STATUS_CODES[error_status]
+  def error_title(status)
+    Rack::Utils::HTTP_STATUS_CODES[error_status(status)]
   end
 
-  def error_status
+  def error_status(status)
     Rack::Utils::SYMBOL_TO_STATUS_CODE[status]
   end
 end
