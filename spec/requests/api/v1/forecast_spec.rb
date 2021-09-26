@@ -8,7 +8,9 @@ describe 'Api::V1::Forecast API', type: :request do
       before { get '/api/v1/forecast', params: { location: location } }
 
       it 'returns the forecast for the given location' do
-        expect(JSON.parse(response.body)).to be_a(Hash)
+        json = JSON.parse(response.body, symbolize_names: true)
+
+        expect(json).to be_a(Hash)
       end
 
       it 'returns status code 200' do
