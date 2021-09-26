@@ -10,12 +10,22 @@ module Response
     {
       json: {
         errors: {
-          status: Rack::Utils::SYMBOL_TO_STATUS_CODE[status],
-          title: status.to_s.tr('_', ' ').titleize,
+          status: error_status,
+          title: error_title,
           detail: object
         }
       },
       status: status
     }
+  end
+
+  private
+
+  def error_title
+    Rack::Utils::HTTP_STATUS_CODES[error_status]
+  end
+
+  def error_status
+    Rack::Utils::SYMBOL_TO_STATUS_CODE[status]
   end
 end
