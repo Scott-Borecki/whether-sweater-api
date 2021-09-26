@@ -30,20 +30,16 @@ describe ForecastService, type: :service do
           expect(forecast[:current][:sunrise]).to be_an(Integer)
 
           expect(forecast[:current]).to have_key(:temp)
-          expect(forecast[:current][:temp]).to be_a(Float)
+          expect(forecast[:current][:temp]).to be_a(Numeric) # Float
 
           expect(forecast[:current]).to have_key(:feels_like)
-          expect(forecast[:current][:feels_like]).to be_a(Float)
+          expect(forecast[:current][:feels_like]).to be_a(Numeric) # Float
 
           expect(forecast[:current]).to have_key(:humidity)
           expect(forecast[:current][:humidity]).to be_an(Integer)
 
           expect(forecast[:current]).to have_key(:uvi)
-          if forecast[:current][:uvi].zero?
-            expect(forecast[:current][:uvi]).to be_an(Integer)
-          else
-            expect(forecast[:current][:uvi]).to be_a(Float)
-          end
+          expect(forecast[:current][:uvi]).to be_a(Numeric) # Float
 
           expect(forecast[:current]).to have_key(:visibility)
           expect(forecast[:current][:visibility]).to be_an(Integer)
@@ -75,10 +71,10 @@ describe ForecastService, type: :service do
           expect(forecast[:daily].first[:temp]).to be_a(Hash)
 
           expect(forecast[:daily].first[:temp]).to have_key(:max)
-          expect(forecast[:daily].first[:temp][:max]).to be_a(Float)
+          expect(forecast[:daily].first[:temp][:max]).to be_a(Numeric) # Float
 
           expect(forecast[:daily].first[:temp]).to have_key(:min)
-          expect(forecast[:daily].first[:temp][:min]).to be_a(Float)
+          expect(forecast[:daily].first[:temp][:min]).to be_a(Numeric) # Float
 
           expect(forecast[:daily].first[:weather].first).to have_key(:description)
           expect(forecast[:daily].first[:weather].first[:description]).to be_a(String)
@@ -94,7 +90,7 @@ describe ForecastService, type: :service do
           expect(forecast[:hourly].first[:dt]).to be_an(Integer)
 
           expect(forecast[:hourly].first).to have_key(:temp)
-          expect(forecast[:hourly].first[:temp]).to be_a(Float)
+          expect(forecast[:hourly].first[:temp]).to be_a(Numeric) # Float
 
           expect(forecast[:hourly].first[:weather].first).to have_key(:description)
           expect(forecast[:hourly].first[:weather].first[:description]).to be_a(String)
