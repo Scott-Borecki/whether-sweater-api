@@ -39,7 +39,11 @@ describe ForecastService, type: :service do
           expect(forecast[:current][:humidity]).to be_an(Integer)
 
           expect(forecast[:current]).to have_key(:uvi)
-          expect(forecast[:current][:uvi]).to be_a(Float)
+          if forecast[:current][:uvi].zero?
+            expect(forecast[:current][:uvi]).to be_an(Integer)
+          else
+            expect(forecast[:current][:uvi]).to be_a(Float)
+          end
 
           expect(forecast[:current]).to have_key(:visibility)
           expect(forecast[:current][:visibility]).to be_an(Integer)
