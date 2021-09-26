@@ -5,6 +5,10 @@ class Image
     @image = populate_image(data)
   end
 
+  def id
+    nil
+  end
+
   def populate_image(data)
     {
       location: data[:location][:name],
