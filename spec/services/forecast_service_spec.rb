@@ -86,7 +86,6 @@ describe ForecastService, type: :service do
           expect(forecast[:daily].first[:weather].first).to have_key(:icon)
           expect(forecast[:daily].first[:weather].first[:icon]).to be_a(String)
 
-
           expect(forecast).to have_key(:hourly)
           expect(forecast[:hourly]).to be_an(Array)
           expect(forecast[:hourly].first).to be_a(Hash)

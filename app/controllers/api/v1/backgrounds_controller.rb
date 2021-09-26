@@ -1,8 +1,8 @@
 class Api::V1::BackgroundsController < ApplicationController
   def index
-    background_image = ImageFacade.get_background_image(location: params[:location])
+    bg_image = ImageFacade.get_background_image(location: params[:location])
 
-    render jsonapi: background_image, status: :ok
+    render jsonapi: bg_image, status: :ok
   end
   #
   # private

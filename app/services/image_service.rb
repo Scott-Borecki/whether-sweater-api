@@ -13,9 +13,7 @@ class ImageService
   def self.get_background_image(orientation: 'landscape', **args)
     response = conn.get('/photos/random') do |req|
       req.params['query'] = args[:location]
-      return unless orientation.present?
-
-      req.params['orientation'] = orientation
+      req.params['orientation'] = orientation if orientation.present?
     end
 
     JSON.parse(response.body, symbolize_names: true)
