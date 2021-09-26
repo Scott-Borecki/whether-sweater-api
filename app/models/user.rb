@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :api_keys
+  has_many :api_keys, dependent: :destroy
 
   validates :email, uniqueness: true, presence: true
   validates :password_confirmation, presence: true
@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def api_key
-    api_keys.get_user_token
+    api_keys.user_token
   end
 
   private

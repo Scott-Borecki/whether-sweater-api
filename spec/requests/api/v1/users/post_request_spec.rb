@@ -4,15 +4,15 @@ require 'rails_helper'
 # See spec/support/helpers/requests/request_spec_helper.rb for #json helper method
 describe 'Api::V1::Users API', type: :request do
   describe 'POST /api/v1/users' do
-    let(:email) { 'whatever@example.com'}
-    let(:password) { 'password'}
+    let(:email) { 'whatever@example.com' }
+    let(:password) { 'password' }
 
     context 'when I provide valid parameters' do
       let(:valid_parameters) do
         {
-          'email': email,
-          'password': password,
-          'password_confirmation': password
+          email: email,
+          password: password,
+          password_confirmation: password
         }
       end
 
@@ -37,9 +37,9 @@ describe 'Api::V1::Users API', type: :request do
       context 'when the passwords do not match' do
         let(:invalid_parameters) do
           {
-            'email': email,
-            'password': password.upcase,
-            'password_confirmation': password
+            email: email,
+            password: password.upcase,
+            password_confirmation: password
           }
         end
 
@@ -58,9 +58,9 @@ describe 'Api::V1::Users API', type: :request do
         let!(:registered_user) { create(:user, email: email) }
         let(:invalid_parameters) do
           {
-            'email': email,
-            'password': password,
-            'password_confirmation': password
+            email: email,
+            password: password,
+            password_confirmation: password
           }
         end
 
@@ -68,7 +68,7 @@ describe 'Api::V1::Users API', type: :request do
 
         it 'returns a heplful error message' do
           expect(json[:errors].size).to eq(1)
-          expect(json[:errors].first[:detail]).to eq("Your record could not be saved: Email has already been taken")
+          expect(json[:errors].first[:detail]).to eq('Your record could not be saved: Email has already been taken')
         end
 
         include_examples 'compliant json error format'
@@ -78,8 +78,8 @@ describe 'Api::V1::Users API', type: :request do
       context 'when the password confirmation is missing' do
         let(:invalid_parameters) do
           {
-            'email': email,
-            'password': password
+            email: email,
+            password: password
           }
         end
 
@@ -97,8 +97,8 @@ describe 'Api::V1::Users API', type: :request do
       context 'when the email is missing' do
         let(:invalid_parameters) do
           {
-            'password': password,
-            'password_confirmation': password
+            password: password,
+            password_confirmation: password
           }
         end
 
@@ -116,8 +116,8 @@ describe 'Api::V1::Users API', type: :request do
       context 'when the password is missing' do
         let(:invalid_parameters) do
           {
-            'email': email,
-            'password_confirmation': password
+            email: email,
+            password_confirmation: password
           }
         end
 
