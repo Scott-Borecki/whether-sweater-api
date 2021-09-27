@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe ForecastFacade, type: :facade do
+describe WeatherFacade, type: :facade do
   describe 'class methods' do
     describe '.get_forecast', :vcr do
       context 'when I provide valid coordinates' do
-        subject(:forecast) { ForecastFacade.get_forecast(coordinates) }
+        subject(:forecast) { WeatherFacade.get_forecast(coordinates) }
 
         let(:coordinates) { { lat: 39.738453, lon: -104.984853 } }
 
@@ -14,7 +14,7 @@ describe ForecastFacade, type: :facade do
       end
 
       context 'when I do not provide coordinates' do
-        subject(:error_serializer) { ForecastFacade.get_forecast(empty_coordinates) }
+        subject(:error_serializer) { WeatherFacade.get_forecast(empty_coordinates) }
 
         let(:empty_coordinates) { { lat: '', lon: '' } }
 

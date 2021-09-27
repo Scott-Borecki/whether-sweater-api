@@ -1,6 +1,6 @@
-class ForecastFacade
+class WeatherFacade
   def self.get_forecast(**arguments)
-    data_hash = ForecastService.get_forecast(**arguments)
+    data_hash = WeatherService.get_forecast(**arguments)
 
     if data_hash[:message].present?
       ErrorSerializer.new(messages: [data_hash[:message]],

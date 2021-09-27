@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe ForecastService, type: :service do
+describe WeatherService, type: :service do
   describe 'class methods' do
     describe '.get_forecast' do
       context 'when I provide valid coordinates', :vcr do
-        subject(:forecast) { ForecastService.get_forecast(coordinates) }
+        subject(:forecast) { WeatherService.get_forecast(coordinates) }
 
         let(:coordinates) { { lat: 39.738453, lon: -104.984853 } }
 
@@ -101,7 +101,7 @@ describe ForecastService, type: :service do
       end
 
       context 'when I do not provide coordinates', :vcr do
-        subject(:response) { ForecastService.get_forecast(empty_coordinates) }
+        subject(:response) { WeatherService.get_forecast(empty_coordinates) }
 
         let(:empty_coordinates) { { lat: '', lon: '' } }
 

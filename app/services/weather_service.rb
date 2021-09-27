@@ -1,4 +1,4 @@
-class ForecastService
+class WeatherService
   def self.conn
     Faraday.new(
       url: 'https://api.openweathermap.org',
