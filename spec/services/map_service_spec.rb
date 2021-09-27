@@ -98,6 +98,14 @@ describe MapService, type: :service do
         it 'returns the error details as a hash', :aggregate_failures do
           expect(response).to be_a(Hash)
 
+          expect(response).to have_key(:route)
+          expect(response[:route]).to be_a(Hash)
+          expect(response[:route].size).to eq(1)
+
+          expect(response[:route]).to have_key(:routeError)
+          expect(response[:route][:routeError]).to be_a(Hash)
+          expect(response[:route][:routeError].size).to eq(2)
+
           expect(response).to have_key(:info)
           expect(response[:info]).to be_a(Hash)
 
