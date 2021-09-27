@@ -39,16 +39,21 @@ describe MapFacade, type: :facade do
           expect(directions).to be_an_instance_of(Directions)
         end
       end
-      #
-      # context 'when I do not provide a location' do
-      #   subject(:error_serializer) { MapFacade.get_coordinates('') }
-      #
-      #   it 'returns an ErrorSerializer object' do
-      #     expect(error_serializer).to be_an_instance_of(ErrorSerializer)
-      #     expect(error_serializer.status).to be_an(Integer)
-      #     expect(error_serializer.messages).to be_an(Array)
-      #   end
-      # end
+
+      context 'when I provide an impossible route' do
+        subject(:directions) { MapFacade.get_directions(parameters) }
+
+        let(:parameters) do
+          {
+            origin: 'Denver,CO',
+            destination: 'London,UK'
+          }
+        end
+
+        it 'returns nil' do
+          expect(directions).to be_nil
+        end
+      end
     end
   end
 end
