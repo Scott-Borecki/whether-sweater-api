@@ -2,9 +2,7 @@ class Api::V1::ForecastController < ApplicationController
   before_action :validate_location, only: [:index]
 
   def index
-    location = MapFacade.get_coordinates(params[:location])
-    forecast = WeatherFacade.get_forecast(lat: location.latitude,
-                                          lon: location.longitude)
+    forecast = ForecastFacade.get_forecast(params[:location])
 
     render jsonapi: forecast, status: :ok
   end
