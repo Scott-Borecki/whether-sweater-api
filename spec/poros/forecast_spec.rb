@@ -83,4 +83,22 @@ describe Forecast, type: :poro do
       expect(forecast.hourly_weather.first[:icon]).to be_a(String)
     end
   end
+
+  describe 'instance methods' do
+    describe '#weather_at_eta' do
+      # See spec/support/forecast_response_body.rb for test setup helper method:
+      #   #forecast_imperial_response_body
+      subject(:forecast) { Forecast.new(forecast_imperial_response_body) }
+
+      it 'returns the hourly weather forecast for a given time' do
+        travel_time_seconds = 9662
+
+        expected = {
+          conditions: 'clear sky',
+          temperature: 58.35
+        }
+        expect(forecast.weather_at_eta(travel_time_seconds)).to eq(expected)
+      end
+    end
+  end
 end
