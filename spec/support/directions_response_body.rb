@@ -413,3 +413,29 @@ def directions_response_body
       }
   }
 end
+
+# Endpoint response body recorded on September 27, 2021.
+#
+#   from='denver,co'
+#   to='london,uk'
+def impossible_route_response_body
+  {
+    "route": {
+        "routeError": {
+            "errorCode": 2,
+            "message": ""
+        }
+    },
+    "info": {
+        "statuscode": 402,
+        "copyright": {
+            "imageAltText": "© 2021 MapQuest, Inc.",
+            "imageUrl": "http://api.mqcdn.com/res/mqlogo.gif",
+            "text": "© 2021 MapQuest, Inc."
+        },
+        "messages": [
+            "We are unable to route with the given locations."
+        ]
+    }
+  }
+end
