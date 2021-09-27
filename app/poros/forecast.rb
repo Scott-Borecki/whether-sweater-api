@@ -50,4 +50,13 @@ class Forecast
       }
     end
   end
+
+  def weather_at_eta(travel_time_seconds)
+    hour_index = travel_time_seconds / 3600
+
+    {
+      conditions: hourly_weather[hour_index][:conditions],
+      temperature: hourly_weather[hour_index][:temperature]
+    }
+  end
 end

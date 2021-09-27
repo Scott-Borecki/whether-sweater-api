@@ -1,12 +1,9 @@
 class ForecastFacade
-  def self.get_forecast(**arguments)
-    data_hash = ForecastService.get_forecast(**arguments)
+  def self.get_forecast(location)
+    coordinates = MapFacade.get_coordinates(location)
+    return coordinates if coordinates.is_a? ErrorSerializer
 
-    if data_hash[:message].present?
-      ErrorSerializer.new(messages: [data_hash[:message]],
-                          status: data_hash[:cod])
-    else
-      Forecast.new(data_hash)
-    end
+    WeatherFacade.get_forecast(lat: coordinates.latitude,
+                               lon: coordinates.longitude)
   end
 end
