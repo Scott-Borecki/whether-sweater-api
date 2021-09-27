@@ -26,7 +26,7 @@ describe MapFacade, type: :facade do
 
     describe '.get_directions', :vcr do
       context 'when I provide a valid parameters' do
-        subject(:road_trip) { MapFacade.get_directions(parameters) }
+        subject(:directions) { MapFacade.get_directions(parameters) }
 
         let(:parameters) do
           {
@@ -35,8 +35,8 @@ describe MapFacade, type: :facade do
           }
         end
 
-        xit 'returns a RoadTrip object' do
-          expect(road_trip).to be_an_instance_of(RoadTrip)
+        it 'returns a Directions object' do
+          expect(directions).to be_an_instance_of(Directions)
         end
       end
       #

@@ -10,9 +10,9 @@ class MapFacade
     end
   end
 
-  def self.get_directions(**args)
-    data_hash = MapService.get_directions(**args)
+  def self.get_directions(args)
+    data_hash = MapService.get_directions(args)
 
-    RoadTrip.new(data_hash)
+    Directions.new(data_hash)
   end
 end
