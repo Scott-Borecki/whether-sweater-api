@@ -37,12 +37,13 @@ describe RoadTrip, type: :poro do
     end
 
     context 'when the route is impossible' do
-      xit 'is valid and has readable attributes' do
-        # See spec/support/directions_response_body.rb for #directions_response_body
-        directions = Directions.new(directions_response_body)
-        # See spec/support/forecast_imperial_response_body.rb for #forecast_imperial_response_body
-        forecast = Forecast.new(forecast_imperial_response_body)
-        road_trip = RoadTrip.new(directions, forecast)
+      it 'is valid and has readable attributes' do
+        params = {
+          origin: 'Denver,CO',
+          destination: 'London,UK',
+          api_key: SecureRandom.hex
+        }
+        road_trip = RoadTrip.new(params)
 
         expect(road_trip).to be_a(RoadTrip)
 
@@ -53,7 +54,7 @@ describe RoadTrip, type: :poro do
         expect(road_trip.end_city).to eq('London, UK')
 
         expect(road_trip.travel_time).to be_a(String)
-        expect(road_trip.travel_time).to eq('impossible route')
+        expect(road_trip.travel_time).to eq('impossible')
 
         expect(road_trip.weather_at_eta).to be_a(Hash)
         expect(road_trip.weather_at_eta.size).to eq(0)

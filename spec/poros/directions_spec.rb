@@ -31,28 +31,6 @@ describe Directions, type: :poro do
         expect(directions.travel_time_seconds).to eq(6683)
       end
     end
-
-    context 'when the route is impossible' do
-      xit 'is valid and has readable attributes' do
-        # # See spec/support/directions_response_body.rb for #directions_response_body
-        # directions = directions_response_body
-        # directions = Directions.new(directions)
-        #
-        # expect(directions).to be_a(Directions)
-        #
-        # expect(directions.start_city).to be_a(String)
-        # expect(directions.start_city).to eq('Denver, CO')
-        #
-        # expect(directions.end_city).to be_a(String)
-        # expect(directions.end_city).to eq('London, UK')
-        #
-        # expect(directions.travel_time).to be_a(String)
-        # expect(directions.travel_time).to eq('impossible route')
-        #
-        # expect(directions.weather_at_eta).to be_a(Hash)
-        # expect(directions.weather_at_eta.size).to eq(0)
-      end
-    end
   end
 
   describe 'instance methods' do
