@@ -3,12 +3,8 @@ class Api::V1::BookSearchController < ApplicationController
   before_action :validate_quantity, only: [:index]
 
   def index
-    books = LibraryService.get_books_based_on_location(book_search_params)
-    coordinates = MapFacade.get_coordinates(params[:location])
-    forecast = WeatherService.get_forecast(lat: coordinates.latitude,
-                                           lon: coordinates.longitude)
-
-    book_collection = BookCollection.new(books, forecast)
+    book_collection =
+      BookSearchFacade.get_books_based_on_location(book_search_params)
 
     render jsonapi: book_collection, status: :ok
   end
