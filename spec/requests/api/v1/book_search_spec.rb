@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Api::V1::BookSearches", type: :request do
-  describe "GET /api/v1/book-search" do
+  describe "GET /api/v1/book-search", :vcr do
     context 'when I provide valid parameters' do
       let(:location) { 'denver,co' }
       let(:quantity) { 5 }
@@ -11,8 +11,9 @@ RSpec.describe "Api::V1::BookSearches", type: :request do
 
       it 'returns books based on a provided destination city' do
         expect(json[:data][:type]).to eq('books')
-        expect(json[:data][:attributes][:image][:destination]).to eq(location)
-        expect(json[:data][:attributes][:image][:books].size).to eq(5)
+        expect(json[:data][:attributes].size).to eq(4)
+        expect(json[:data][:attributes][:destination]).to eq(location)
+        expect(json[:data][:attributes][:books].size).to eq(quantity)
       end
 
       include_examples 'compliant json data format'
