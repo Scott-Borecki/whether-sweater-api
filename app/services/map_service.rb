@@ -15,10 +15,10 @@ class MapService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_directions(**args)
+  def self.get_directions(args)
     response = conn.get('/directions/v2/route') do |req|
       req.params['from'] = args[:origin]
-      req.params['to'] = args[:destination]
+      req.params['to']   = args[:destination]
     end
 
     JSON.parse(response.body, symbolize_names: true)
