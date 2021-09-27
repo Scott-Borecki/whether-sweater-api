@@ -18,12 +18,12 @@ describe 'Api::V1::RoadTrips API', type: :request do
 
         before { get '/api/v1/road_trip', params: road_trip_parameters }
 
-        xit 'returns the road trip details' do
+        it 'returns the road trip details' do
           expect(json[:data][:id]).to be_nil
           expect(json[:data][:type]).to eq('roadtrip')
           expect(json[:data][:attributes].size).to eq(4)
-          expect(json[:data][:attributes][:start_city]).to be_a('Denver, CO')
-          expect(json[:data][:attributes][:end_city]).to be_a('Pueblo, CO')
+          expect(json[:data][:attributes][:start_city]).to eq('Denver, CO')
+          expect(json[:data][:attributes][:end_city]).to eq('Pueblo, CO')
           expect(json[:data][:attributes][:travel_time]).to be_a(String)
           expect(json[:data][:attributes][:weather_at_eta]).to be_a(Hash)
           expect(json[:data][:attributes][:weather_at_eta].size).to eq(2)
@@ -31,8 +31,8 @@ describe 'Api::V1::RoadTrips API', type: :request do
           expect(json[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
         end
 
-        # include_examples 'compliant json data format'
-        # include_examples 'status code 200'
+        include_examples 'compliant json data format'
+        include_examples 'status code 200'
       end
     end
 

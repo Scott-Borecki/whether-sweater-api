@@ -4,14 +4,14 @@ class Api::V1::RoadTripController < ApplicationController
   before_action :validate_destination, only: [:index]
 
   def index
-    road_trip = RoadTrip.get_road_trip(road_trip_params)
+    road_trip = RoadTripFacade.get_road_trip(road_trip_params)
     render jsonapi: road_trip, status: :ok
   end
 
   private
 
   def road_trip_params
-    params.permit(:origin, :distination)
+    params.permit(:origin, :destination)
   end
 
   def validate_api_key
