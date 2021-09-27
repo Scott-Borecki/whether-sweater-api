@@ -31,7 +31,7 @@ describe MapService, type: :service do
     end
 
     describe '.get_directions' do
-      context 'when I provide a valid origin and destination', :vcr do
+      context 'when I provide locations with a possible route', :vcr do
         subject(:directions) { MapService.get_directions(road_trip_parameters) }
 
         let(:origin_city) { 'Denver'}
@@ -75,20 +75,40 @@ describe MapService, type: :service do
 
           expect(directions[:route]).to have_key(:time)
           expect(directions[:route][:time]).to be_an(Integer)
+
+          expect(directions).to have_key(:info)
+          expect(directions[:info]).to be_a(Hash)
+
+          expect(directions[:info]).to have_key(:statuscode)
+          expect(directions[:info][:statuscode]).to be_an(Integer)
+          expect(directions[:info][:statuscode]).to eq(0)
         end
       end
 
-      context 'when I do not provide a valid origin and destination', :vcr do
-        subject(:response) { MapService.get_directions(empty_location) }
+      context 'when I provide locations with an impossible route', :vcr do
+        subject(:response) { MapService.get_directions(impossible_route_params) }
 
-        let(:empty_location) { '' }
+        let(:impossible_route_params) do
+          {
+            origin: "Denver,CO",
+            destination: "London,UK"
+          }
+        end
 
-        xit 'returns the error details as a hash', :aggregate_failures do
-          require "pry"; binding.pry
+        it 'returns the error details as a hash', :aggregate_failures do
           expect(response).to be_a(Hash)
-          expect(response[:results].first[:providedLocation][:location]).to eq(empty_location)
-          expect(response[:info][:statuscode]).to eq(400)
-          expect(response[:info][:messages]).to eq(['Illegal argument from request: Insufficient info for location'])
+
+          expect(response).to have_key(:info)
+          expect(response[:info]).to be_a(Hash)
+
+          expect(response[:info]).to have_key(:statuscode)
+          expect(response[:info][:statuscode]).to be_an(Integer)
+          expect(response[:info][:statuscode]).to eq(402)
+
+          expect(response[:info]).to have_key(:messages)
+          expect(response[:info][:messages]).to be_an(Array)
+          expect(response[:info][:messages]).to all(be_a(String))
+          expect(response[:info][:messages].first).to eq('We are unable to route with the given locations.')
         end
       end
     end
