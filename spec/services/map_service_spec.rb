@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe LocationService, type: :service do
+describe MapService, type: :service do
   describe 'class methods' do
     describe '.get_coordinates' do
       context 'when I provide a location', :vcr do
-        subject(:coordinates) { LocationService.get_coordinates(location) }
+        subject(:coordinates) { MapService.get_coordinates(location) }
 
         let(:location) { 'denver,co' }
 
@@ -17,7 +17,7 @@ describe LocationService, type: :service do
       end
 
       context 'when I do not provide a location', :vcr do
-        subject(:response) { LocationService.get_coordinates(empty_location) }
+        subject(:response) { MapService.get_coordinates(empty_location) }
 
         let(:empty_location) { '' }
 
