@@ -4,7 +4,7 @@ class Api::V1::ForecastController < ApplicationController
   def index
     location = MapFacade.get_coordinates(params[:location])
     forecast = WeatherFacade.get_forecast(lat: location.latitude,
-                                           lon: location.longitude)
+                                          lon: location.longitude)
 
     render jsonapi: forecast, status: :ok
   end

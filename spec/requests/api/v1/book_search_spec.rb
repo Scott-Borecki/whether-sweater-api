@@ -2,8 +2,8 @@ require 'rails_helper'
 
 # See spec/support/shared_examples/requests/ for shared examples
 # See spec/support/helpers/requests/request_spec_helper.rb for #json helper method
-RSpec.describe "Api::V1::BookSearches", type: :request do
-  describe "GET /api/v1/book-search", :vcr do
+RSpec.describe 'Api::V1::BookSearches', type: :request do
+  describe 'GET /api/v1/book-search', :vcr do
     context 'when I provide valid parameters' do
       let(:location) { 'denver,co' }
       let(:quantity) { 5 }
@@ -45,7 +45,7 @@ RSpec.describe "Api::V1::BookSearches", type: :request do
           let(:invalid_search_params) { { location: empty_location, quantity: quantity } }
 
           before { get '/api/v1/book-search', params: invalid_search_params }
-          
+
           it 'returns a bad request error message' do
             expect(json[:errors].size).to eq(1)
             expect(json[:errors].first[:detail]).to eq("Location can't be blank")

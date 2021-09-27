@@ -5,6 +5,7 @@ describe LibraryService, type: :service do
     describe '.get_books_based_on_location' do
       context 'when I provide a valid location', :vcr do
         subject(:book_data) { LibraryService.get_books_based_on_location(search_params) }
+
         let(:location) { 'denver,co' }
         let(:quantity) { 5 }
         let(:search_params) { { location: location, quantity: quantity } }
