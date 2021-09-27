@@ -5,13 +5,13 @@ describe RoadTrip, type: :poro do
     context 'when the route is possible' do
       it 'is valid and has readable attributes' do
         # See spec/support/directions_response_body.rb for #directions_response_body
-        directions = directions_response_body
+        directions = Directions.new(directions_response_body)
         # See spec/support/forecast_imperial_response_body.rb for #forecast_imperial_response_body
-        forecast = forecast_imperial_response_body
+        forecast = Forecast.new(forecast_imperial_response_body)
         road_trip = RoadTrip.new(directions, forecast)
 
         expect(road_trip).to be_a(RoadTrip)
-        
+
         expect(road_trip.id).to be_nil
 
         expect(road_trip.start_city).to be_a(String)
@@ -21,7 +21,7 @@ describe RoadTrip, type: :poro do
         expect(road_trip.end_city).to eq('Pueblo, CO')
 
         expect(road_trip.travel_time).to be_a(String)
-        expect(road_trip.travel_time).to eq('1 hours, 51 minutes')
+        expect(road_trip.travel_time).to eq('1 hour, 51 minutes')
 
         expect(road_trip.weather_at_eta).to be_a(Hash)
         expect(road_trip.weather_at_eta.size).to eq(2)
@@ -39,9 +39,9 @@ describe RoadTrip, type: :poro do
     context 'when the route is impossible' do
       xit 'is valid and has readable attributes' do
         # See spec/support/directions_response_body.rb for #directions_response_body
-        directions = directions_response_body
+        directions = Directions.new(directions_response_body)
         # See spec/support/forecast_imperial_response_body.rb for #forecast_imperial_response_body
-        forecast = forecast_imperial_response_body
+        forecast = Forecast.new(forecast_imperial_response_body)
         road_trip = RoadTrip.new(directions, forecast)
 
         expect(road_trip).to be_a(RoadTrip)

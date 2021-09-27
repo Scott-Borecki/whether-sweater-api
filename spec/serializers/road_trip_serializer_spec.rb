@@ -5,9 +5,9 @@ describe RoadTripSerializer, type: :serializer do
     subject(:road_trip_serializer) { RoadTripSerializer.new(road_trip) }
 
     # See spec/support/directions_response_body.rb for #directions_response_body
-    let(:directions) { directions_response_body }
+    let(:directions) { Directions.new(directions_response_body) }
     # See spec/support/forecast_imperial_response_body.rb for #forecast_imperial_response_body
-    let(:forecast) { forecast_imperial_response_body }
+    let(:forecast) { Forecast.new(forecast_imperial_response_body) }
     let(:road_trip) { RoadTrip.new(directions, forecast) }
 
     it 'is valid and has readable attributes', :aggregate_failures do
@@ -20,9 +20,9 @@ describe RoadTripSerializer, type: :serializer do
       subject(:road_trip_hash) { RoadTripSerializer.new(road_trip).serializable_hash }
 
       # See spec/support/directions_response_body.rb for #directions_response_body
-      let(:directions) { directions_response_body }
+      let(:directions) { Directions.new(directions_response_body) }
       # See spec/support/forecast_imperial_response_body.rb for #forecast_imperial_response_body
-      let(:forecast) { forecast_imperial_response_body }
+      let(:forecast) { Forecast.new(forecast_imperial_response_body) }
       let(:road_trip) { RoadTrip.new(directions, forecast) }
 
       it 'returns a JSON:API compliable hash', :aggregate_failures do
