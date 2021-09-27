@@ -3,7 +3,7 @@ class BookCollection
 
   def initialize(books, forecast)
     @id                = nil
-    @destination       = books[:q]
+    @destination       = books[:q].tr('+', ',')
     @forecast          = populate_forecast(forecast)
     @total_books_found = books[:numFound]
     @books             = books[:docs]
