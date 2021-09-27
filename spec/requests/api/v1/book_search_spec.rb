@@ -19,17 +19,22 @@ RSpec.describe "Api::V1::BookSearches", type: :request do
       include_examples 'compliant json data format'
       include_examples 'status code 200'
     end
-    #
-    # context 'when I do not provide parameters' do
-    #   before { get '/api/v1/book-search' }
-    #
-    #   it 'returns a bad request error message' do
-    #     expect(json[:errors].size).to eq(1)
-    #     expect(json[:errors].first[:detail]).to eq("Location can't be blank")
-    #   end
-    #
-    #   include_examples 'compliant json error format'
-    #   include_examples 'status code 400'
-    # end
+
+    context 'when I do not provide valid parameters' do
+      context 'when I do not provide a valid location' do
+        let(:quantity) { 5 }
+        let(:invalid_search_params) { { quantity: quantity } }
+
+        before { get '/api/v1/book-search', params: invalid_search_params }
+
+        it 'returns a bad request error message' do
+          expect(json[:errors].size).to eq(1)
+          expect(json[:errors].first[:detail]).to eq("Location can't be blank")
+        end
+
+        include_examples 'compliant json error format'
+        include_examples 'status code 400'
+      end
+    end
   end
 end

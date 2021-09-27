@@ -1,4 +1,6 @@
 class Api::V1::BookSearchController < ApplicationController
+  before_action :validate_location, only: [:index]
+
   def index
     books = LibraryService.get_books_based_on_location(book_search_params)
     coordinates = MapFacade.get_coordinates(params[:location])
@@ -11,6 +13,13 @@ class Api::V1::BookSearchController < ApplicationController
   end
 
   private
+
+  def validate_location
+    validator = LocationValidator.new(location: params[:location])
+    return if validator.valid?
+
+    render json_error_response(validator.errors, :bad_request)
+  end
 
   def book_search_params
     { location: params[:location], quantity: params[:quantity] }
