@@ -5,7 +5,7 @@ describe RoadTrip, type: :poro do
     context 'when the route is possible' do
       xit 'is valid and has readable attributes' do
         # See spec/support/road_trip_response_body.rb for #road_trip_response_body
-        data  = road_trip_response_body
+        data = road_trip_response_body
         road_trip = RoadTrip.new(data)
 
         expect(road_trip).to be_a(RoadTrip)
@@ -35,7 +35,7 @@ describe RoadTrip, type: :poro do
     context 'when the route is impossible' do
       xit 'is valid and has readable attributes' do
         # See spec/support/road_trip_response_body.rb for #road_trip_response_body
-        data  = road_trip_response_body
+        data = road_trip_response_body
         road_trip = RoadTrip.new(data)
 
         expect(road_trip).to be_a(RoadTrip)

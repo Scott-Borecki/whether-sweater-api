@@ -8,7 +8,7 @@ describe WeatherFacade, type: :facade do
 
         let(:coordinates) { { lat: 39.738453, lon: -104.984853 } }
 
-        it 'returns a Location object' do
+        it 'returns a Forecast object' do
           expect(forecast).to be_an_instance_of(Forecast)
         end
       end
