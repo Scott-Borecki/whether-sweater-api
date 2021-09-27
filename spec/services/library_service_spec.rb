@@ -15,6 +15,10 @@ describe LibraryService, type: :service do
           expect(book_data).to have_key(:numFound)
           expect(book_data[:numFound]).to be_an(Integer)
 
+          expect(book_data).to have_key(:q)
+          expect(book_data[:q]).to be_a(String)
+          expect(book_data[:q]).to eq(location)
+
           expect(book_data).to have_key(:docs)
           expect(book_data[:docs]).to be_an(Array)
           expect(book_data[:docs].size).to eq(quantity)
