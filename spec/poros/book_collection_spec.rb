@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe BookCollection, type: :poro do
   describe 'object creation' do
-    it 'is valid and has readable attributes' do
-      # See spec/support/books_response_body.rb for #books_response_body
-      books = books_response_body
-      # See spec/support/forecast_response_body.rb for #forecast_imperial_response_body
-      forecast = forecast_imperial_response_body
-      book_collection = BookCollection.new(books, forecast)
+    subject(:book_collection) { BookCollection.new(books, forecast) }
 
+    # See spec/support/books_response_body.rb for #books_response_body
+    let(:books) { books_response_body }
+    # See spec/support/forecast_response_body.rb for #forecast_imperial_response_body
+    let(:forecast) { forecast_imperial_response_body }
+
+    it 'is valid and has readable attributes' do
       expect(book_collection).to be_a(BookCollection)
 
       expect(book_collection.id).to be_nil
@@ -52,6 +53,27 @@ describe BookCollection, type: :poro do
 
         book[:publisher].each do |publisher|
           expect(publisher).to be_a(String)
+        end
+      end
+    end
+  end
+
+  describe 'instance methods' do
+    describe '#populate_forecast' do
+      context 'when I provide a forecast' do
+        subject(:book_collection) { BookCollection.new(books, forecast) }
+
+        # See spec/support/books_response_body.rb for #books_response_body
+        let(:books) { books_response_body }
+        # See spec/support/forecast_response_body.rb for #forecast_imperial_response_body
+        let(:forecast) { forecast_imperial_response_body }
+
+        it 'returns the forecast as a hash' do
+          expected = {
+            summary: 'clear sky',
+            temperature: '57 F'
+          }
+          expect(book_collection.populate_forecast(forecast)).to eq(expected)
         end
       end
     end
