@@ -1,12 +1,9 @@
 class Image
-  attr_reader :image
+  attr_reader :id, :image
 
   def initialize(data)
+    @id    = nil
     @image = populate_image(data)
-  end
-
-  def id
-    nil
   end
 
   def populate_image(data)

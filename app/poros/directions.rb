@@ -1,5 +1,6 @@
 class Directions
   class DataTypeError < StandardError; end
+
   class TimeMustBeIntegerError < DataTypeError
     def message
       'Time must be provided as an integer'
