@@ -13,13 +13,13 @@ Whether, Sweater? API is the back-end of the Sweater Weather web app, which help
 
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
- - [Fork This Repository](#fork-this-repository)
- - [Clone Your Forked Repository](#clone-your-forked-respository)
- - [Installation](#installation)
- - [Third-Party APIs](#third-party-apis)
+  - [Fork This Repository](#fork-this-repository)
+  - [Clone Your Forked Repository](#clone-your-forked-repository)
+  - [Installation](#installation)
+  - [Third-Party APIs](#third-party-apis)
 - [API Consumption](#api-consumption)
- - [Making API Endpoint Requests](#making-api-endpoint-requests)
- - [Endpoint Documentation](#endpoint-documentation)
+  - [Making API Endpoint Requests](#making-api-endpoint-requests)
+  - [Endpoint Documentation](#endpoint-documentation)
 - [Project Background](#project-background)
 - [Contributors](#contributors)
 
@@ -32,7 +32,7 @@ Whether, Sweater? API is the back-end of the Sweater Weather web app, which help
 
 ## Getting Started
 
-#### Fork This Repository:
+#### Fork This Repository
 
 [Whether, Sweater? API][Repository]
 
@@ -86,7 +86,7 @@ The `base path` of each endpoint will be from your localhost server:
 http://localhost:3000
 ```
 
-## Endpoint Documentation
+### Endpoint Documentation
 
 The following table presents each API endpoint, path, and link to the documentation.  
 
