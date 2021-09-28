@@ -7,7 +7,7 @@
 [![Stargazers][stars-badge]][stars-url]
 [![Issues][issues-badge]][issues-url]
 
-Whether, Sweater? API is the back-end of the Sweater Weather web app, which helps users plan road trips by showing the weather forecast at the destination city based on their estimated arrival time. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs.
+Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater Weather is a web application that allows users to check the weather forecast at their destination city. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs. The APIs interact to build a response to the request.
 
 ## Table of Contents
 
@@ -16,8 +16,8 @@ Whether, Sweater? API is the back-end of the Sweater Weather web app, which help
   - [Fork This Repository](#fork-this-repository)
   - [Clone Your Forked Repository](#clone-your-forked-repository)
   - [Installation](#installation)
-  - [Third-Party APIs](#third-party-apis)
 - [API Consumption](#api-consumption)
+  - [Third-Party APIs](#third-party-apis)
   - [Making API Endpoint Requests](#making-api-endpoint-requests)
   - [Endpoint Documentation](#endpoint-documentation)
 - [Project Background](#project-background)
@@ -32,12 +32,8 @@ Whether, Sweater? API is the back-end of the Sweater Weather web app, which help
 
 ## Getting Started
 
-#### Fork This Repository
-
-[Whether, Sweater? API][Repository]
-
-#### Clone Your Forked Repository
-Copy the `https://` clone URL or SSH URL of your forked repository.  Run the following command in your terminal from your project directory:
+#### Fork and Clone This Repository
+Fork this [Repository][Repository]. In your forked repository, copy the `https://` clone URL or SSH URL.  Run the following command in your terminal from your project directory:
 ```bash
 $ git clone insert_copied_url_here
 ```
@@ -50,19 +46,21 @@ $ rails db:create
 $ rails db:migrate
 ```
 
-#### Third-Party APIs
-The following third-party APIs were used in this project and you must request an API key from each service:
+## API Consumption
+
+### Third-Party APIs
+The following third-party APIs were used that require an API Key. Get your API key for each service:
 - [OpenWeather API](https://openweathermap.org/api/one-call-api)
 - [MapQuest API](https://developer.mapquest.com/documentation/geocoding-api/)
 - [Unsplash API](https://unsplash.com/developers)
 - [OpenLibrary API](https://openlibrary.org/developers/api) (No API key required)
 
-After you obtain your API keys, run the following command in your terminal from your project directory to install the [Figaro gem](https://github.com/laserlemon/figaro#getting-started):
+After you get your API keys, install the [Figaro gem](https://github.com/laserlemon/figaro#getting-started) from your project directory:
 
 ``` bash
 $ bundle exec figaro install
 ```
-This creates a commented `config/application.yml` file and adds it to your `.gitignore`.  Populate each ENV variable with your API keys as follows:
+This creates a commented `config/application.yml` file and adds it to your `.gitignore`.  Populate each ENV variable with your respective API key as follows:
 
 ``` ruby
 # config/application.yml
@@ -71,16 +69,15 @@ mapquest_api_key: insert_mapquest_api_key_here
 open_weather_api_key: insert_open_weather_api_key_here
 unsplash_api_key: insert_unsplash_api_key_here
 ```
-## API Consumption
 
 ### Making API Endpoint Requests
 
-The endpoint requests will be made from your local machine.  Fire up the Rails server by running the following command in your terminal from your project directory:
+Make the endpoint requests from your local machine.  Fire up the Rails server by running the following command in your terminal from your project directory:
 ``` bash
 $ rails s
 ```
 
-The `base path` of each endpoint will be from your localhost server:
+The `base path` of each endpoint is as follows:
 
 ```
 http://localhost:3000
@@ -88,7 +85,7 @@ http://localhost:3000
 
 ### Endpoint Documentation
 
-The following table presents each API endpoint, path, and link to the documentation.  
+The following table presents each API endpoint, path, and a link to its documentation.  
 
 Endpoint                                 | Path                      | Docs
 -----------------------------------------|---------------------------|------------------------
@@ -101,7 +98,7 @@ Retrieve Books Based on Your Destination | `GET /api/v1/book-search` | [docs][re
 
 ## Project Background
 
-This project was developed by Scott Borecki for the final project of Mod 3 of Turing School's Back End Engineering Program.  The project was developed from scratch in about 7 days.
+This project was developed by Scott Borecki for the final project at Turing School's Back End Engineering Program.  The project was developed from scratch in about 7 days.
 
 The project description and base requirements can be found here: [link][whether-sweater-home]
 
