@@ -7,7 +7,7 @@
 [![Stargazers][stars-badge]][stars-url]
 [![Issues][issues-badge]][issues-url]
 
-Whether, Sweater? API is the back-end of the Sweater Weather web app, which helps users plan road trips by showing the weather forecast at the destination based on their estimated arrival time at the destination. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs.
+Whether, Sweater? API is the back-end of the Sweater Weather web app, which helps users plan road trips by showing the weather forecast at the destination city based on their estimated arrival time. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs.
 
 ## Table of Contents
 
