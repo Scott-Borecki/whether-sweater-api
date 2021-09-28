@@ -8,6 +8,8 @@ describe Forecast, type: :poro do
 
     it 'is valid and has readable attributes', :aggregate_failures do
       expect(forecast).to be_a(Forecast)
+      expect(forecast.id).to be_nil
+
       expect(forecast.current_weather).to be_a(Hash)
       expect(forecast.current_weather.size).to eq(10)
 

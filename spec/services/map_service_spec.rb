@@ -34,10 +34,10 @@ describe MapService, type: :service do
       context 'when I provide locations with a possible route', :vcr do
         subject(:directions) { MapService.get_directions(road_trip_parameters) }
 
-        let(:origin_city) { 'Denver'}
-        let(:origin_state) { 'CO'}
-        let(:destination_city) { 'Pueblo'}
-        let(:destination_state) { 'CO'}
+        let(:origin_city) { 'Denver' }
+        let(:origin_state) { 'CO' }
+        let(:destination_city) { 'Pueblo' }
+        let(:destination_state) { 'CO' }
         let(:road_trip_parameters) do
           {
             origin: "#{origin_city},#{origin_state}",
@@ -90,8 +90,8 @@ describe MapService, type: :service do
 
         let(:impossible_route_params) do
           {
-            origin: "Denver,CO",
-            destination: "London,UK"
+            origin: 'Denver,CO',
+            destination: 'London,UK'
           }
         end
 

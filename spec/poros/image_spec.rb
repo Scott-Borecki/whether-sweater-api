@@ -8,6 +8,7 @@ describe Image, type: :poro do
       image = Image.new(data)
 
       expect(image).to be_a(Image)
+      expect(image.id).to be_nil
 
       expect(image.image).to be_a(Hash)
       expect(image.image.size).to eq(3)
