@@ -13,8 +13,7 @@ Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater W
 
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
-  - [Fork This Repository](#fork-this-repository)
-  - [Clone Your Forked Repository](#clone-your-forked-repository)
+  - [Fork and Clone This Repository](#fork-and-clone-this-repository)
   - [Installation](#installation)
 - [API Consumption](#api-consumption)
   - [Third-Party APIs](#third-party-apis)
