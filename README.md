@@ -7,7 +7,7 @@
 [![Stargazers][stars-badge]][stars-url]
 [![Issues][issues-badge]][issues-url]
 
-Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater Weather is a web application that allows users to check the weather forecast at their destination city. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs. The APIs interact to build a response to the request.
+Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater Weather is a web application that allows users to check the weather forecast at their destination city. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs. Based on the estimated time of arrival, it displays the destination city's weather forecast.
 
 ## Table of Contents
 
