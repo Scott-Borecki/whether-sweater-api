@@ -1,4 +1,10 @@
-# Whether, Sweater? API
+<div align="center">
+  <h1>Whether, Sweater? API</h1>
+
+  <p>
+    <img src='docs/wireframes/root_wireframe.png' alt='Sweater Weather Root Wireframe' width='80%'>
+  </p>
+</div>
 
 ![Version][version-badge]
 [![Ruby Style Guide][rubocop-badge]][rubocop-url]
@@ -7,7 +13,19 @@
 [![Stargazers][stars-badge]][stars-url]
 [![Issues][issues-badge]][issues-url]
 
-Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater Weather is a web application that allows users to check the weather forecast at their destination city. The front-end app communicates with this back-end app through an API, which in turn consumes four third-party APIs. Based on the estimated time of arrival, it displays the destination city's weather forecast.
+Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater Weather is a web application that allows users to plan for a road trip by checking the weather forecast at their destination city.
+
+The Sweater Weather front-end application communicates with this API to perform the following features:
+
+- register a user
+- login a user
+- get the weather forecast at the destination city
+- get a website background image based on the destination city
+- get the estimated travel time to the destination city
+- get the destination city's weather forecast based on the estimated arrival time
+- get book recommendations based on the destination city
+
+This API consumes four third-party APIs and aggregates the data to return the requested information.
 
 ## Table of Contents
 
@@ -19,6 +37,7 @@ Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater W
   - [Third-Party APIs](#third-party-apis)
   - [Making API Endpoint Requests](#making-api-endpoint-requests)
   - [Endpoint Documentation](#endpoint-documentation)
+- [Wireframes](#wireframes)
 - [Project Background](#project-background)
 - [Contributors](#contributors)
 
@@ -33,13 +52,13 @@ Whether, Sweater? API is the back-end architecture of Sweater Weather. Sweater W
 
 #### Fork and Clone This Repository
 Fork this [Repository][Repository]. In your forked repository, copy the `https://` clone URL or SSH URL.  Run the following command in your terminal from your project directory:
-```bash
+```sh
 $ git clone insert_copied_url_here
 ```
 
 #### Installation
 Run the following command in your terminal from your project directory:
-```bash
+```sh
 $ bundle install
 $ rails db:create
 $ rails db:migrate
@@ -56,12 +75,12 @@ The following third-party APIs were used that require an API Key. Get your API k
 
 After you get your API keys, install the [Figaro gem](https://github.com/laserlemon/figaro#getting-started) from your project directory:
 
-``` bash
+``` sh
 $ bundle exec figaro install
 ```
 This creates a commented `config/application.yml` file and adds it to your `.gitignore`.  Populate each ENV variable with your respective API key as follows:
 
-``` ruby
+``` rb
 # config/application.yml
 
 mapquest_api_key: insert_mapquest_api_key_here
@@ -72,7 +91,7 @@ unsplash_api_key: insert_unsplash_api_key_here
 ### Making API Endpoint Requests
 
 Make the endpoint requests from your local machine.  Fire up the Rails server by running the following command in your terminal from your project directory:
-``` bash
+``` sh
 $ rails s
 ```
 
@@ -94,6 +113,32 @@ Register a User                          | `POST /api/v1/users`      | [docs][re
 Login a User                             | `POST /api/v1/sessions`   | [docs][login-user]
 Plan a Road Trip                         | `GET /api/v1/road_trip`   | [docs][plan-road-trip]
 Retrieve Books Based on Your Destination | `GET /api/v1/book-search` | [docs][retrieve-books]
+
+## Wireframes
+
+The following wireframes represent what the front end of the application will look like.  This is what the user will see when they visit the website.
+
+<div align="center">
+  <img src='docs/wireframes/root_wireframe.png' alt='Sweater Weather Root Wireframe' width='80%'>
+  <p>
+    <b>Wireframe 1.</b> Root Page Wireframe
+  </p>
+
+  <img src='docs/wireframes/registration_wireframe.png' alt='Sweater Weather User Registration Wireframe' width='80%'>
+  <p>
+    <b>Wireframe 2.</b> User Registration Wireframe
+  </p>
+
+  <img src='docs/wireframes/login_wireframe.png' alt='Sweater Weather User Login Wireframe' width='80%'>
+  <p>
+    <b>Wireframe 3.</b> User Login Wireframe
+  </p>
+
+  <img src='docs/wireframes/road_trip_wireframe.png' alt='Sweater Weather Road Trip Wireframe' width='80%'>
+  <p>
+    <b>Wireframe 4.</b> Road Trip Wireframe
+  </p>
+</div>
 
 ## Project Background
 
