@@ -1,4 +1,11 @@
-# User Registration
+<div align="center">
+  <h1>User Registration</h1>
+
+  <p>
+    <img src='/docs/wireframes/registration_wireframe.png' alt='Sweater Weather User Registration Wireframe' width='80%'>
+  </p>
+</div>
+
 
 Register a new user and generate a unique API key.
 

@@ -1,4 +1,10 @@
-# Retrieve a Background Image for a City
+<div align="center">
+  <h1>Retrieve a Background Image for a City</h1>
+
+  <p>
+    <img src='/docs/wireframes/root_wireframe.png' alt='Sweater Weather Root Wireframe' width='80%'>
+  </p>
+</div>
 
 Retrieve a background image for a given city.
 

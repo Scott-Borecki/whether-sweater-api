@@ -1,4 +1,10 @@
-# Plan a Road Trip
+<div align="center">
+  <h1>Plan a Road Trip</h1>
+
+  <p>
+    <img src='/docs/wireframes/road_trip_wireframe.png' alt='Sweater Weather Road Trip Wireframe' width='80%'>
+  </p>
+</div>
 
 Retrieve the weather at the destination based on the ETA at the destination.
 

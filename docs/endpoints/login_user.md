@@ -1,4 +1,9 @@
-# User Login
+<div align="center">
+  <h1>User Login</h1>
+  <p>
+    <img src='/docs/wireframes/login_wireframe.png' alt='Sweater Weather User Login Wireframe' width='80%'>
+  </p>
+</div>
 
 Login a user and retrieve the user's API key.
 

@@ -1,4 +1,10 @@
-# Retrieve Weather for a City
+<div align="center">
+  <h1>Retrieve Weather for a City</h1>
+
+  <p>
+    <img src='/docs/wireframes/root_wireframe.png' alt='Sweater Weather Root Wireframe' width='80%'>
+  </p>
+</div>
 
 Retrieve the weather forecast for a given city.
 
