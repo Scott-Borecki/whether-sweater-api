@@ -1,11 +1,5 @@
 class Directions
-  class DataTypeError < StandardError; end
-
-  class TimeMustBeIntegerError < DataTypeError
-    def message
-      'Time must be provided as an integer'
-    end
-  end
+  include TimeErrorable
 
   attr_reader :id, :start_city, :end_city, :end_latitude, :end_longitude,
               :travel_time, :travel_time_seconds
